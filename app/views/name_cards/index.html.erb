@@ -1,0 +1,30 @@
+<h1>Listing name_cards</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @name_cards.each do |name_card| %>
+      <tr>
+        <td><%= link_to name_card.name, company_group_user_name_card_path(params[:company_id],params[:group_id],params[:user_id],name_card.id) %></td>
+        <td>
+          <%= link_to 'Edit', edit_company_group_user_name_card_path(params[:company_id],params[:group_id],params[:user_id],name_card.id) %><br />
+        </td>
+        <td>
+          <%= link_to 'Destroy', company_group_user_name_card_path(params[:company_id],params[:group_id],params[:user_id],name_card.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+<%= paginate @name_cards %>
+<%= link_to 'Back', company_group_users_path(params[:company_id],params[:group_id]) %>
+<%= link_to 'New name_card', new_company_group_user_name_card_path %>

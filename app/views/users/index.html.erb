@@ -1,0 +1,32 @@
+<h1>Listing users</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= link_to user.name, company_group_user_path(user.group.company_id,user.group_id,user.id) %></td>
+        <td>
+          <%= link_to 'Show NameCards', company_group_user_name_cards_path(user.group.company_id,user.group_id,user.id) %>
+        </td>
+        <td>
+          <%= link_to 'Edit', edit_company_group_user_path(user.group.company_id, user.group_id,user.id) %>
+        </td>
+        <td>
+          <%= link_to 'Destroy', company_group_user_path(user.group.company_id,user.group_id, user.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+<% end %>
+  </tbody>
+</table>
+<%= paginate @users %>
+<%= link_to 'Back', company_groups_path %>
+<%= link_to 'New User', new_company_group_user_path %>

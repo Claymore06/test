@@ -1,0 +1,23 @@
+<h1>Listing groups</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @groups.each do |group| %>
+      <tr>
+        <td><%= link_to group.name, company_group_path(group.company_id, group.id)%></td>
+        <td><%= link_to 'ShowUsers', company_group_users_path(group.company_id,group.id)%>
+        <td><%= link_to 'Edit', edit_company_group_path(group.company_id,group.id) %></td>
+        <td><%= link_to 'Destroy', company_group_path(group.company_id,group.id ), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= paginate @groups %>
+<%= link_to 'New Group', new_company_group_path %>
+<%= link_to 'back Companies', companies_path%>

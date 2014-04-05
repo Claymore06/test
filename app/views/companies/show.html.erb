@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+<h1>Company Information</h1>
+<ul>
+  <li><strong>Name:</strong>
+  <%= @company.name %>
+  <li><strong>Adress:</strong>
+  <%= @company.adress %>
+  <li><strong>Tel:</strong>
+  <%= @company.tel %>
+  <li><strong>Fax:</strong>
+  <%= @company.fax %>
+  <li><strong>Url:</strong>
+  <%= @company.url %>
+</ul>
+<%= link_to 'Edit Company Information', edit_company_path(@company) %> |
+<%= link_to 'Back Companies Index', companies_path %>

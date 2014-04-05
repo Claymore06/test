@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+<h1>User Information</h1>
+<p>
+  <strong>Name:</strong>
+  <%= @user.name %>
+</p>
+
+<p>
+  <strong>Mail:</strong>
+  <%= @user.mail %>
+</p>
+
+<p>
+  <strong>Tel:</strong>
+  <%= @user.tel %>
+</p>
+
+<%= link_to 'Edit', edit_company_group_user_path %> 
+<%= link_to 'Back', company_group_users_path %>
