@@ -6,8 +6,10 @@ BusinessCard::Application.routes.draw do
       end
     end
   end
-resources :login_users , only: :create
-root :to => 'login_users#new'
+  resource :user_sessions
+  root :controller => "user_sessions", :action => "new"
+  resource :account, :controller => "login_users"
+  resource :login_users
 
  # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
