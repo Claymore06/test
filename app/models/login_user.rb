@@ -1,5 +1,5 @@
 class LoginUser < ActiveRecord::Base
   acts_as_authentic do |c|
-    c.login_field = :login
+    c.validate_email_field = false
   end
 end

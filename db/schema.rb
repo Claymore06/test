@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140413080055) do
+ActiveRecord::Schema.define(version: 20140415124326) do
 
   create_table "companies", force: true do |t|
     t.string   "name"
@@ -33,21 +33,21 @@ ActiveRecord::Schema.define(version: 20140413080055) do
   add_index "groups", ["company_id"], name: "index_groups_on_company_id"
 
   create_table "login_users", force: true do |t|
-    t.string   "login",              limit: 50,              null: false
-    t.string   "email",              limit: 100,             null: false
-    t.string   "crypted_password",                           null: false
-    t.string   "password_salt",                              null: false
-    t.string   "persistence_token",                          null: false
-    t.integer  "login_count",                    default: 0, null: false
-    t.integer  "failed_login_count",             default: 0, null: false
+    t.string   "login",                          null: false
+    t.string   "email"
+    t.string   "crypted_password",               null: false
+    t.string   "password_salt",                  null: false
+    t.string   "persistence_token",              null: false
+    t.integer  "login_count",        default: 0, null: false
+    t.integer  "failed_login_count", default: 0, null: false
+    t.datetime "last_request_at"
     t.datetime "current_login_at"
     t.datetime "last_login_at"
+    t.string   "current_login_ip"
+    t.string   "last_login_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  add_index "login_users", ["email"], name: "index_login_users_on_email", unique: true
-  add_index "login_users", ["login"], name: "index_login_users_on_login", unique: true
 
   create_table "name_cards", force: true do |t|
     t.integer  "user_id"
