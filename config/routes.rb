@@ -1,8 +1,5 @@
 BusinessCard::Application.routes.draw do
-  resource :user_session
-  root :controller => "user_sessions", :action => "new" 
-  resource :account, :controller => "login_users"
-  resources :login_user
+  devise_for :login_users
   resources :companies do
     resources :groups do
       resources :users do
@@ -10,6 +7,7 @@ BusinessCard::Application.routes.draw do
       end
     end
   end
+  root :to => "companies#index"
  # optional, this just sets the root route
  # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

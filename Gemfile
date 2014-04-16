@@ -41,9 +41,8 @@ gem 'twitter-bootstrap-rails'
 gem 'less-rails'
 
 gem 'kaminari'
-gem 'authlogic'
 gem 'rb-readline'
-gem 'scrypt'
+gem 'devise'
 # Use ActiveModel has_secure_password
 #gem 'bcrypt-ruby', '~> 3.0.0'
 
