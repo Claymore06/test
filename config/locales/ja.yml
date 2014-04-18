@@ -12,6 +12,10 @@ ja:
                 login_user:
                           signed_in:
                           - ログインしました
+        registration:
+                    login_user:
+                              signed_up:
+                              - サインアップしました！
   date:
     abbr_day_names:
     - 日
